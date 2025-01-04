@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 public class HargaTiket {
     public static void main(String[] args) {
-        int jumlahMinimalTiketDapatDiskon = 5;
-        float Diskon = (float) 0.1;
+        int jumlahMinimalTiketDapatDiskon = 6;
+        float diskon = (float) 0.1;
+        int hargaTiket = 35000;
         Scanner input = new Scanner(System.in);
         System.out.println("1.Senin");
         System.out.println("2.Selasa");
@@ -16,9 +17,22 @@ public class HargaTiket {
         System.out.println("7.Minggu");
         System.out.print("Masukan Nilai Hari Ini (1-7): ");
         int day = input.nextInt();
+        if (day < 1 || day > 7) {
+            System.out.println("Masukan Nilai Hari yang benar");
+            System.exit(0);
+        } else if (day > 5) {
+            hargaTiket = 45000;
+        }
         System.out.print("Masukan Jumlah Tiket Yang Ingin dibeli: ");
         int jumlahTiket = input.nextInt();
-        int hargaTiketWeekday = 35000;
-        int hargaTiketWeekend = 45000;
+        if (jumlahTiket < 1) {
+            System.out.println("Jumlah Tiket tidak boleh kurang dari 1");
+        } else if (jumlahTiket < jumlahMinimalTiketDapatDiskon) {
+            System.out.println("Jumlah Tiket: "+jumlahTiket);
+            System.out.println("Total Harga: "+hargaTiket*jumlahTiket);
+        }else {
+            System.out.println("Jumlah Tiket: "+jumlahTiket);
+            System.out.println("Total Harga: "+hargaTiket*jumlahTiket*(1-diskon));
+        }
     }
 }
