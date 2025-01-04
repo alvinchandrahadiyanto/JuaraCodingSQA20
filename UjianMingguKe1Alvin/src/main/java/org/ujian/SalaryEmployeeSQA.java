@@ -18,6 +18,10 @@ public class SalaryEmployeeSQA {
 
             System.out.print("MASUKKAN NILAI KANDIDAT (0-10): ");
             int myValueSQA = input.nextInt();
+            if (myValueSQA < 0 || myValueSQA > 10) {
+                System.out.println("Masukan Nilai Kandidat yang benar");
+                System.exit(0);
+            }
 
             if (myValueSQA > standardCompanySQA) {
                 divisi = "QA Automation";
