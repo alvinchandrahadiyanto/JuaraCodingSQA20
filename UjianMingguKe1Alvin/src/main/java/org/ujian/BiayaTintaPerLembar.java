@@ -13,8 +13,12 @@ public class BiayaTintaPerLembar {
             double priceTinta = 216860;
             double constantBaseCoverage = 5;
 
-            System.out.print("MASUKKAN baseCoverage: ");
+            System.out.print("MASUKKAN baseCoverage (5-100): ");
             double baseCoverage = input.nextDouble();
+            if (baseCoverage < 5 || baseCoverage > 100) {
+                System.out.println("Masukan Nilai baseCoverage yang benar");
+                System.exit(0);
+            }
 
             double hasilBaseCoverage = baseCoverage /constantBaseCoverage;
             double pageDiv = cmyk / hasilBaseCoverage;
