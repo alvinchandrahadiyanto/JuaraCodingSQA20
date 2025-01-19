@@ -21,8 +21,11 @@ public class Calculator {
         return a%b;
     }
 
-    public static int divided(int a, int b){
-        return a/b;
+    public static double divided(double a, double b){
+        double result = a/b;
+        decfor.format(result);
+        decfor.setRoundingMode(RoundingMode.HALF_EVEN);
+        return result;
     }
 
     public static double bmi(double tinggi_meter, double berat_kg){
