@@ -1,4 +1,4 @@
-package org.BelajarTesNG;
+package com.belajartestng;
 
 /**
  * Hello world!
