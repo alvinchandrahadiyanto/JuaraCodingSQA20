@@ -1,12 +1,14 @@
 package com.juaracoding;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class FirstSelenium {
+public class SendKeysSelenium {
 
     static WebDriver driver;
 
@@ -21,16 +23,16 @@ public class FirstSelenium {
         System.out.println(driver.getCurrentUrl());
         System.out.println(driver.getTitle());
 
-        // locator
-        login("standard_user","secret_sauce");
-        // step logout id=react-burger-menu-btn, logout_sidebar_link
-        driver.findElement(By.id("react-burger-menu-btn")).click();
-        driver.findElement(By.id("logout_sidebar_link")).click();
+        WebElement elmt = driver.findElement(By.id("user-name"));
+        // enter text then ctrl+a
+        elmt.sendKeys("selenium");
+        elmt.sendKeys(Keys.CONTROL+"A");
 
-        login("locked_out_user","secret_sauce");
+        // locator
+        //login("standard_user","secret_sauce");
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
