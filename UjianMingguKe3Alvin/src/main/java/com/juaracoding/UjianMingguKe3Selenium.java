@@ -5,7 +5,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -17,7 +19,7 @@ public class UjianMingguKe3Selenium {
             System.out.println("Selenium 4");
             System.setProperty("webdriver.chrome.driver","C:\\Users\\User\\Documents\\Juara Coding Bootcamp\\others\\chromedriver-win64\\chromedriver.exe");
             driver = new ChromeDriver();
-            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+            new WebDriverWait(driver, Duration.ofSeconds(20)); // Pengganti driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
             driver.manage().window().maximize();
             driver.get("https://www.saucedemo.com/");
 
@@ -34,7 +36,7 @@ public class UjianMingguKe3Selenium {
 
             // Assert Login Positive test Login
             assertEquals(actual,expected,"Login");
-            delay(3);
+            delay(5);
 
             // Menguji Fitur Add to Cart
             List<WebElement> addToCartButtons = driver.findElements(By.xpath("//*[@class='btn btn_primary btn_small btn_inventory ']"));
@@ -53,15 +55,22 @@ public class UjianMingguKe3Selenium {
                 System.out.println("Tombol Add to Cart Failed");
             }
 
-            delay(3);
+            delay(5);
+
+            //Membuka Shop Cart
+            WebElement ShopCart = driver.findElement(By.xpath("//a[@class='shopping_cart_link']"));
+            ShopCart.click();
+
+            delay(5);
 
             logout();
 
+            delay(5);
+
             // Negative test Login
 
-//        login("locked_out_user","secret_sauce");
+            login("locked_out_user","secret_sauce");
 
-            // thread sleep
             delay(5);
 
             driver.quit();
