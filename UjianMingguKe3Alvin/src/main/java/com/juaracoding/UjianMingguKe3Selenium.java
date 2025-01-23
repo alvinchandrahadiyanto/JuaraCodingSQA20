@@ -23,18 +23,19 @@ public class UjianMingguKe3Selenium {
 
             System.out.println(driver.getCurrentUrl());
             System.out.println(driver.getTitle());
+
     // Positive test
+            System.out.println("==== Positive Test ====");
             // Login
             login("standard_user","secret_sauce");
 
             // Step validation Positive test Login
             WebElement titleWeb = driver.findElement(By.xpath("//span[@class='title']"));
             String actual = titleWeb.getText();
-            String expected = "Products";
 
             // Assert Login Positive test Login
-            assertEquals(actual,expected,"Login");
-            delay(5);
+            assertEquals(actual,"Products","Login");
+            delay(2);
 
             // Menguji Fitur Add to Cart
             List<WebElement> addToCartButtons = driver.findElements(By.xpath("//*[@class='btn btn_primary btn_small btn_inventory ']"));
@@ -53,7 +54,7 @@ public class UjianMingguKe3Selenium {
                 System.out.println("Tombol Add to Cart Failed");
             }
 
-            delay(5);
+            delay(2);
 
             //Membuka Shop Cart
             WebElement shopCart = driver.findElement(By.xpath("//a[@class='shopping_cart_link']"));
@@ -80,18 +81,23 @@ public class UjianMingguKe3Selenium {
             WebElement finishCheckout = driver.findElement(By.xpath("//button[@id='finish']"));
             finishCheckout.click();
 
-            delay(5);
-
+            delay(2);
             logout();
-
-            delay(5);
+            delay(2);
 
     // Negative test
+            System.out.println(" ");
+            System.out.println("==== Negative Test ====");
+
             // Login
-
             login("locked_out_user","secret_sauce");
+            WebElement loginFail = driver.findElement(By.xpath("//*[@id=\"login_button_container\"]/div/form/div[3]/h3"));
+            System.out.println(loginFail.getText());
+            actual=loginFail.getText();
 
-            delay(5);
+            assertEquals(actual,"Epic sadface","Fail Login");
+
+            delay(2);
 
             driver.quit();
         }
@@ -124,10 +130,10 @@ public class UjianMingguKe3Selenium {
 
     // custom assertion if assertEquals()
     public static void assertEquals(String actual, String expected, String Test){
-        if(actual.equals(expected)){
-            System.out.println(Test+" Passed");
+        if(actual.contains(expected)){
+            System.out.println(Test+": Passed");
         } else {
-            System.out.println(Test+" Failed");
+            System.out.println(Test+": Failed");
         }
     }
 }
