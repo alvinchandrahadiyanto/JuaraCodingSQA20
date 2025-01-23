@@ -21,7 +21,7 @@ public class LoginTest {
     @BeforeClass
     public void setup() {
         options = new ChromeOptions();
-        options.setBinary("C:\\chrome-win64\\chrome.exe");
+        options.setBinary("C:\\Users\\User\\Documents\\Juara Coding Bootcamp\\others\\chromedriver-win64\\chromedriver.exe");
         driver = new ChromeDriver(options);
         driver.get("http://localhost:8000/admin");
     }
