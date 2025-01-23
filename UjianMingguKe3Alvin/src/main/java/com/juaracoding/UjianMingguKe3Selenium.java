@@ -1,7 +1,6 @@
 package com.juaracoding;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,7 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class UjianMingguKe3Selenium {
     static WebDriver driver;
@@ -25,8 +23,8 @@ public class UjianMingguKe3Selenium {
 
             System.out.println(driver.getCurrentUrl());
             System.out.println(driver.getTitle());
-
-            // Positive test Login
+    // Positive test
+            // Login
             login("standard_user","secret_sauce");
 
             // Step validation Positive test Login
@@ -58,8 +56,29 @@ public class UjianMingguKe3Selenium {
             delay(5);
 
             //Membuka Shop Cart
-            WebElement ShopCart = driver.findElement(By.xpath("//a[@class='shopping_cart_link']"));
-            ShopCart.click();
+            WebElement shopCart = driver.findElement(By.xpath("//a[@class='shopping_cart_link']"));
+            shopCart.click();
+            delay(3);
+
+            //Checkout Shop Cart
+            WebElement checkout = driver.findElement(By.xpath("//button[@id='checkout']"));
+            checkout.click();
+
+            //Fill Identity
+            WebElement firstName = driver.findElement(By.xpath("//input[@id='first-name']"));
+            WebElement lastName = driver.findElement(By.xpath("//input[@id='last-name']"));
+            WebElement postalCode = driver.findElement(By.xpath("//input[@id='postal-code']"));
+
+            firstName.sendKeys("Budi");
+            lastName.sendKeys("Setiawan");
+            postalCode.sendKeys("4125");
+
+            //Continue payment
+            WebElement goCheckout = driver.findElement(By.xpath("//input[@id='continue']"));
+            goCheckout.click();
+
+            WebElement finishCheckout = driver.findElement(By.xpath("//button[@id='finish']"));
+            finishCheckout.click();
 
             delay(5);
 
@@ -67,7 +86,8 @@ public class UjianMingguKe3Selenium {
 
             delay(5);
 
-            // Negative test Login
+    // Negative test
+            // Login
 
             login("locked_out_user","secret_sauce");
 
@@ -79,7 +99,6 @@ public class UjianMingguKe3Selenium {
             System.out.println(e.toString());
             driver.quit();
         }
-
     }
 
     // method login
@@ -92,7 +111,7 @@ public class UjianMingguKe3Selenium {
     private static void logout(){
         // step logout id=react-burger-menu-btn, logout_sidebar_link
         driver.findElement(By.id("react-burger-menu-btn")).click();
-        driver.findElement(By.linkText("Logout")).click();
+        driver.findElement(By.xpath("//*[@id=\"logout_sidebar_link\"]")).click();
     }
 
     public static void delay(long second){
