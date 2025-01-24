@@ -1,0 +1,9 @@
+Buat automation testing untuk fitur Login pada web https://www.saucedemo.com/ dan scenario test fitur Add 1 product to cart, buatkan juga Assert pada feature login dan add product, tambahkan minimal 1 scenario negative test.
+
+Notes:
+
+*Push project ke github dengan repository baru
+
+*Buatkan video running automation upload ke youtube, tambahkan link youtube ke README.md
+
+*Tambahkan juga link google sheet ScenarioTest ke README.md
