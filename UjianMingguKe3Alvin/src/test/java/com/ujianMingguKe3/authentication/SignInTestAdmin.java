@@ -1,9 +1,9 @@
-package com.belajartestng.authentication;
+package com.ujianMingguKe3.authentication;
 
-import com.belajartestng.drivers.DriverSingleton;
-import com.belajartestng.drivers.utils.BrowserType;
-import com.belajartestng.pages.authentications.DashboardPage;
-import com.belajartestng.pages.authentications.SignInPage;
+import com.ujianMingguKe3.drivers.DriverSingleton;
+import com.ujianMingguKe3.drivers.utils.BrowserType;
+import com.ujianMingguKe3.pages.authentications.DashboardPage;
+import com.ujianMingguKe3.pages.authentications.SignInPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -16,11 +16,15 @@ public class SignInTestAdmin {
 
     @BeforeClass
     public void setup() {
-        driver = DriverSingleton.driver;
+        System.out.println("teststststs");
+//        System.setProperty("webdriver.chrome.driver","C:\\chromedriver-win64\\chromedriver.exe");
+//        driver = new EdgeDriver();
+        driver = DriverSingleton.getDriver(BrowserType.CHROME);
     }
 
     @Test
     public void signInTest() {
+        System.out.println("lele goreng");
         driver.get("http://127.0.0.1:8000/admin");
         signInPage = new SignInPage(driver);
         signInPage.loginActivity("admin", "admin");

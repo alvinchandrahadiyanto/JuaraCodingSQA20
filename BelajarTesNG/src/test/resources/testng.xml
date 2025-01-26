@@ -4,9 +4,9 @@
 
     <test name="eCommerce Test Admin Dashboard">
         <classes>
-            <!--            <class name="com.belajartestng.AdvancedAction"></class>-->
-            <class name="com.belajartestng.HookTest"></class>
             <class name="com.belajartestng.authentication.SignInTestAdmin"></class>
+            <class name="com.belajartestng.HookTest"></class>
+<!--            <class name="com.belajartestng.AdvancedAction"></class>-->
         </classes>
     </test>
     <!--    <parameter name="nama" value="budi"></parameter>-->

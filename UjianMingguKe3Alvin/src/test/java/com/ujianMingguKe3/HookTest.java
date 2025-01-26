@@ -1,8 +1,7 @@
-package com.belajartestng;
+package com.ujianMingguKe3;
 
-import com.belajartestng.drivers.DriverSingleton;
-import com.belajartestng.drivers.utils.BrowserType;
-import org.openqa.selenium.WebDriver;
+import com.ujianMingguKe3.drivers.DriverSingleton;
+import com.ujianMingguKe3.drivers.utils.BrowserType;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 

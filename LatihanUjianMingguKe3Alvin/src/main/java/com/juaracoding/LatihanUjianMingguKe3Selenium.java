@@ -15,7 +15,7 @@ public class LatihanUjianMingguKe3Selenium {
     public static void main(String[] args) {
         try {
             System.out.println("Selenium 4");
-            System.setProperty("webdriver.chrome.driver","C:\\Users\\User\\Documents\\Juara Coding Bootcamp\\others\\chromedriver-win64\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver","C:\\chromedriver-win64\\chromedriver.exe");
             driver = new ChromeDriver();
             new WebDriverWait(driver, Duration.ofSeconds(20)); // Pengganti driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
             driver.manage().window().maximize();
