@@ -18,7 +18,10 @@ Feature: Kalkulator App
     When saya menjumlahkan kedua angka tersebut
     Then hasil penjumlahan harus 5
 
+  Scenario: Mengurangkan dua angka positif
     Given saya memiliki angka 5 untuk pengurangan
     And saya memiliki angka kedua 3 untuk pengurangan
     When saya mengurangi kedua angka tersebut
     Then hasil pengurangan harus 2
+
+

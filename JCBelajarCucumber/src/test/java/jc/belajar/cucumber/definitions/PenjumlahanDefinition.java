@@ -29,5 +29,6 @@ public class PenjumlahanDefinition {
     @Then("hasil penjumlahan harus {int}")
     public void resultMustBe(int expected) {
         Assert.assertEquals(actual, expected);
+
     }
 }
