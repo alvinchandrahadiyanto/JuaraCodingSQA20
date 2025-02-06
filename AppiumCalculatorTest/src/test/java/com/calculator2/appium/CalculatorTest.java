@@ -28,7 +28,7 @@ public class CalculatorTest {
                 "/c",
                 "adb.exe",
                 "shell", "am", "start",
-                "-n", "com.digitalchemy.calculator.freedecimal/.Calculator");
+                "-n", "com.dencreak.dlcalculator/.DLCalculatorActivity");
         Process pc = pb.start();
         pc.waitFor();
     }
