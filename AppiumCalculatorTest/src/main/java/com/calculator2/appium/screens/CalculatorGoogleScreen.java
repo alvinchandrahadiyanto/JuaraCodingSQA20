@@ -60,7 +60,6 @@ public class CalculatorGoogleScreen {
         WebElement element = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(buttonFive)
         );
-
         element.click();
     }
 

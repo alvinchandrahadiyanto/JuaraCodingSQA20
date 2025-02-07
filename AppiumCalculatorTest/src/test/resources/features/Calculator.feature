@@ -8,6 +8,7 @@ Feature: Calculator Samsung
     And saya menekan tombol sama dengan
     Then saya mendapatkan hasil "<result>"
 
+#    Outline scenario
     Examples:
       | firstValue | secondValue | result |
       | 5          | 9           | 14     |
