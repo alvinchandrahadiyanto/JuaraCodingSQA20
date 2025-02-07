@@ -38,6 +38,24 @@ public class CalculatorGoogleScreen {
         element.click();
     }
 
+    public void firstNumber(String firstValue){
+        String selectorNumber1 = "com.asus.calculator:id/digit_"+firstValue;
+        By number1 = AppiumBy.id(selectorNumber1);
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(number1)
+        );
+        element.click();
+    }
+
+    public void secondNumber(String secondValue){
+        String selectorNumber2 ="com.asus.calculator:id/digit_"+secondValue;
+        By number2 = AppiumBy.id(selectorNumber2);
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(number2)
+        );
+        element.click();
+    }
+
     public void clickFive() {
         WebElement element = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(buttonFive)

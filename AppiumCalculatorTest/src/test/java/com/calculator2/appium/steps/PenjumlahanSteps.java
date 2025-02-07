@@ -1,5 +1,6 @@
 package com.calculator2.appium.steps;
 
+import io.cucumber.java.ParameterType;
 import org.testng.Assert;
 
 import com.calculator2.appium.drivers.DriverSingleton;
@@ -15,6 +16,11 @@ public class PenjumlahanSteps {
     private AndroidDriver driver;
     private CalculatorGoogleScreen calculatorScreen;
 
+    @ParameterType(".*") // Mencocokkan semua teks
+    public String stringValue(String arg) {
+        return arg.substring(1, arg.length() - 1); // Menghapus tanda kutip
+    }
+
     @Before
     public void setup() {
         driver = DriverSingleton.getDriver();
@@ -26,9 +32,9 @@ public class PenjumlahanSteps {
         calculatorScreen.clickClear();
     }
 
-    @And("saya menekan tombol nilai pertama")
-    public void clickButtonFive() {
-        calculatorScreen.clickFive();
+    @And("saya menekan tombol pertama {string}")
+    public void clickFirstValue(String firstValue) {
+        calculatorScreen.firstNumber(firstValue);
     }
 
     @And("saya menekan tombol plus")
@@ -36,9 +42,9 @@ public class PenjumlahanSteps {
         calculatorScreen.clickPlus();
     }
 
-    @And("saya menekan tombol nilai kedua")
-    public void clickButtonNine() {
-        calculatorScreen.clickNine();
+    @And("saya menekan tombol kedua {string}")
+    public void clickSecondValue(String secondValue) {
+        calculatorScreen.secondNumber(secondValue);
     }
 
     @And("saya menekan tombol sama dengan")
